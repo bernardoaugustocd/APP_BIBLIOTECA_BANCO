@@ -1,0 +1,61 @@
+CREATE TABLE `funcionarios`(
+`idFuncionario` INT NOT NULL AUTO_INCREMENT,
+`NomeFuncionario` VARCHAR(50) NOT NULL,
+`SenhaFuncionario` VARCHAR(15) NOT NULL,
+`RegistroFuncionario` VARCHAR(10) NOT NULL,
+`CPF_Funcionario` VARCHAR(15) NOT NULL,
+PRIMARY KEY (`idFuncionario`)
+);
+
+CREATE TABLE `aluno`(
+`idAluno` INT NOT NULL AUTO_INCREMENT,
+`NomeAluno` VARCHAR(50) NOT NULL,
+`SenhaAluno` VARCHAR(15) NOT NULL,
+`MatriculaAluno` VARCHAR(20) NOT NULL,
+`EnderecoAluno` VARCHAR(100) NOT NULL,
+PRIMARY KEY (`idAluno`)
+);
+
+CREATE TABLE `livros`(
+`idLivro` INT NOT NULL AUTO_INCREMENT,
+`NomeLivro` VARCHAR(100) NOT NULL,
+`AutorLivro` VARCHAR(100) NOT NULL,
+`EditoraLivro` VARCHAR(75) NOT NULL,
+`Ano_Edicao_Livro` VARCHAR(20) NOT NULL,
+`CategoriaLivro` VARCHAR(100) NOT NULL,
+`QuantidadeLivro` VARCHAR(20) NOT NULL,
+`StatusLivro` VARCHAR(25) NOT NULL,
+PRIMARY KEY (`idLivro`)
+);
+
+CREATE TABLE `emprestimos`(
+`idEmprestimo` INT NOT NULL AUTO_INCREMENT,
+`DataEmprestimo` DATE NOT NULL,
+`PrevisaoDevolucao` DATE NOT NULL,
+PRIMARY KEY (`idEmprestimo`)
+);
+
+INSERT INTO `funcionarios` (`NomeFuncionario`, `SenhaFuncionario`, `RegistroFuncionario`, `CPF_Funcionario`) 
+VALUES ('Diego', '2601', '00001', '12345678910'), ('Marcos', '2813', '00002', '01987654321'), ('Vanessa', '4513', '00003', '46597823101'), ('Maria', '2616', '00004', '15263748901');
+
+select * from `funcionarios`;
+
+INSERT INTO `aluno` (`NomeAluno`, `SenhaAluno`, `MatriculaAluno`, `EnderecoAluno`) 
+VALUES ('Gabriel', '1122', '9901', 'Rua da Saudade, nº. 10, Bairro Eldorado, Contagem/MG'), 
+('Matheus', '1233', '9902', 'Rua da Consolação, nº. 25, Bairro Clemente Faria, Betim/MG'), 
+('Laura', '1344', '9903', 'Rua Mossoro, nº. 14, Vargem Grande, Ibirité/MG'), 
+('Julia', '1455', '9904', 'Rua Inglaterra, nº. 520, Santa Cruz, Contagem/Mg');
+
+SELECT * FROM `aluno`;
+
+INSERT INTO `livros` (`NomeLivro`, `AutorLivro`, `EditoraLivro`, `Ano_Edicao_Livro`, `CategoriaLivro`, `QuantidadeLivro`, `StatusLivro`) VALUES 
+('O cárebro que se transforma', 'Norman Doidge', 'Editora Record', '12 dezembro 2011 - 27ª Edição', 'cientifico', '5', 'todos disponíveis'), 
+('O alquimista', 'Paulo Coelho', 'Editora Paralela', '5 de abril de 2017 - 1ª Edição', 'Auto ajuda', '10', 'todos disponíveis'), 
+('O QUE RESTA DE NÓS', 'Virgine Grimaldi', 'Editora Gutenberg', '15 de agosto de 2024 - Edição única', 'ficção', '6', 'todos disponíveis'), 
+('O HOMEM MAIS INTELIGENTE DA HISTÓRIA', 'Augusto Cury', 'Editora Sextante', '6 de outubro de 2016 - 1ª Edição', 'Auto ajuda', '3', 'todos disponíveis');
+
+SELECT * FROM `livros`;
+
+INSERT INTO `emprestimos` (`DataEmprestimo`, `PrevisaoDevolucao`) VALUES ('2025-05-10', '2025-05-25'), ('2026-02-04', '2026-02-19'), ('2024-04-02', '2024-09-17'), ('2025-11-03', '2025-11-18');
+
+SELECT * FROM `emprestimos`;
